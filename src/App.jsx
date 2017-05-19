@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Clock from './Clock';
 import './App.css'
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form, FormControl, Button, Row, Col } from 'react-bootstrap';
 
 class App extends Component {
 	constructor(props){
@@ -20,23 +20,46 @@ class App extends Component {
 
     render() {
     	return (
-			<div className="App">
-				<div className="App-title">
-					Countdown to {this.state.deadline}
-				</div>
-				<Clock 
-					deadline={this.state.deadline}
-				/>
-				<Form inline>
-					<FormControl 
-						className="Deadline-input" placeholder='new date' 
-						onChange={event => this.setState({newDeadline: event.target.value})}
-					/>
-					<Button onClick={() => this.changeDeadline()}>
-						Submit
-					</Button>
-				</Form>
-			</div>		
+			 <Row className="show-grid">
+				<Col md={6} mdPush={6}>
+					<div className="App">
+						<div className="App-title">
+							Countdown to {this.state.deadline}
+						</div>
+						<Clock 
+							deadline={this.state.deadline}
+						/>
+						<Form inline>
+							<FormControl 
+								className="Deadline-input" placeholder='new date' 
+								onChange={event => this.setState({newDeadline: event.target.value})}
+							/>
+							<Button onClick={() => this.changeDeadline()}>
+								Submit
+							</Button>
+						</Form>
+					</div>		
+				</Col>
+				<Col md={6} mdPull={6}>
+					<div className="App">
+						<div className="App-title">
+							Stopwatch to {this.state.deadline}
+						</div>
+						<Clock 
+							deadline={this.state.deadline}
+						/>
+						<Form inline>
+							<FormControl 
+								className="Deadline-input" placeholder='new date' 
+								onChange={event => this.setState({newDeadline: event.target.value})}
+							/>
+							<Button onClick={() => this.changeDeadline()}>
+								Submit
+							</Button>
+						</Form>
+					</div>		
+				</Col>
+			</Row>			
     	)        
     }
 }
